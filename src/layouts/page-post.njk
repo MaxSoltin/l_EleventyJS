@@ -1,0 +1,23 @@
+{% include "header.njk" %}
+<main class="mainContent">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-3">
+				{% include "aside.njk" %}
+			</div>
+			<div class="col-12 col-md-9">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="pageTitle">{{title}}</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						{{content | safe}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% include "footer.njk" %}

@@ -1,24 +1,8 @@
-{% include 'header.njk' %}
+{% include "header.njk" %}
 <main class="mainContent">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-md-3">
-				<aside class="mainAside">
-					<h3 class="mainAside__title">Categories:</h3>
-					<hr />
-					<ul class="mainAside__list">
-						<li class="mainAside__listItem">
-							<a href="#!" class="mainAside__link">Category 1</a>
-						</li>
-						<li class="mainAside__listItem">
-							<a href="#!" class="mainAside__link">Category 2</a>
-						</li>
-						<li class="mainAside__listItem">
-							<a href="#!" class="mainAside__link">Category 3</a>
-						</li>
-					</ul>
-				</aside>
-			</div>
+			<div class="col-12 col-md-3">{% include "aside.njk" %}</div>
 			<div class="col-12 col-md-9">
 				<div class="row">
 					<div class="col-12">
@@ -26,78 +10,28 @@
 					</div>
 				</div>
 				<div class="row">
+					{% for post in collections.blog %}
 					<div class="col-12 col-md-6 col-lg-4">
-						<a href="#!" class="newsCard">
+						<a href="{{post.url}}" class="newsCard">
 							<div class="newsCard__img">
 								<img src="https://via.placeholder.com/300x200" alt="" />
 							</div>
 							<div class="newsCard__content">
-								<h3 class="newsCard__title">News Title</h3>
+								<h3 class="newsCard__title">{{post.data.title}}</h3>
 								<p class="newsCard__text">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eos quisquam nobis libero! Culpa, nemo repudiandae. Ipsa qui, numquam, quisquam, molestias repellendus consectetur eos
-									minus deleniti voluptatem natus nulla error.
+									{{post.data.desc}}
 								</p>
 								<div class="newsCard__footer">
-									<span>Autor</span>
-									<span>01.10.2021</span>
+									<span>{{post.data.author}}</span>
+									<span>{{post.data.date}}</span>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-12 col-md-6 col-lg-4">
-						<a href="#!" class="newsCard">
-							<div class="newsCard__img">
-								<img src="https://via.placeholder.com/300x200" alt="" />
-							</div>
-							<div class="newsCard__content">
-								<h3 class="newsCard__title">News Title</h3>
-								<p class="newsCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-								<div class="newsCard__footer">
-									<span>Autor</span>
-									<span>01.10.2021</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-12 col-md-6 col-lg-4">
-						<a href="#!" class="newsCard">
-							<div class="newsCard__img">
-								<img src="https://via.placeholder.com/300x200" alt="" />
-							</div>
-							<div class="newsCard__content">
-								<h3 class="newsCard__title">News Title</h3>
-								<p class="newsCard__text">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eos quisquam nobis libero! Culpa, nemo repudiandae. Ipsa qui, numquam, quisquam, molestias repellendus consectetur eos
-									minus deleniti voluptatem natus nulla error.
-								</p>
-								<div class="newsCard__footer">
-									<span>Autor</span>
-									<span>01.10.2021</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-12 col-md-6 col-lg-4">
-						<a href="#!" class="newsCard">
-							<div class="newsCard__img">
-								<img src="https://via.placeholder.com/300x200" alt="" />
-							</div>
-							<div class="newsCard__content">
-								<h3 class="newsCard__title">News Title</h3>
-								<p class="newsCard__text">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eos quisquam nobis libero! Culpa, nemo repudiandae. Ipsa qui, numquam, quisquam, molestias repellendus consectetur eos
-									minus deleniti voluptatem natus nulla error.
-								</p>
-								<div class="newsCard__footer">
-									<span>Autor</span>
-									<span>01.10.2021</span>
-								</div>
-							</div>
-						</a>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
 	</div>
 </main>
-{% include 'footer.njk' %}
+{% include "footer.njk" %}
